@@ -1,14 +1,15 @@
 import React from 'react'
 import { connect } from 'react-redux';
-import { buyCake } from '../redux'; //Action
+import { buyCake, sellCake } from '../redux'; //Action
 
 function CakeContainer (props) {
   return (
     <div>
       <h2>Number of cakes - {props.numOfCakes}</h2>
       <button onClick={props.buyCake}>Buy Cake</button>
+      <button onClick={props.sellCake}>Sell Cake</button>
     </div>
-  )
+  );
 }
 
 const mapStateToProps = state => { //State mapped to our component props
@@ -19,7 +20,8 @@ const mapStateToProps = state => { //State mapped to our component props
 
 const mapDispatchToProps =  dispatch  => { //Map our dispatch action create to a prop in our component
   return {
-    buyCake:  () => dispatch(buyCake())
+    buyCake:  () => dispatch(buyCake()),
+    sellCake: () => dispatch(sellCake())
   }
 }
 
